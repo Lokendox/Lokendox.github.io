@@ -1,0 +1,121 @@
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Carga Dinámica de Datos 
+    
+    const buildData = {
+        '1': { 
+            name: 'Poison SRS (Necromancer)', 
+            clase: 'Witch', 
+            ascendancy: 'Necromancer', 
+            dps: '10,000,000 o mas', 
+            defensa: 'Bloqueo / Escudo de energia',
+            nivel: '92',
+            tipoDano: 'Caos (DoT)',
+ 
+            img_habilidades: 'img/srs_gemas.png',          
+            img_pasivas: 'img/srs_arbol.png',
+            img_equipo: 'img/srs_equipo.png',
+
+            pob_url: 'https://poeplanner.com/BAAAAAQAKwADAwBuANuDWX4T2aokg3ylU9XwQIgyhcZ_HoIglbDfH_Csauq8LpXBkvJoNxtQKx4HVP72xK7Gz01IrQNeGo9q47twCB6kgKL2KSaycV-DXwywFIrGswQHBG8vnmY47NL6s0xliKymbK_Fwc4cYQsL2xjsL_Xu68VybBr70-BVmiQ7avhgLlZDah0akVrzwVJTM5AtPL6OiuxmwC0R6Tb-Ruk6xlXGOm8W1lWnr5gqnCwwUKknKVIfLUdFa8GdRZYRWljgmtwchWUvF80NbiDRMlFJfaj0YtcYAKLba6mq52QAAAgAgf6P07GMCzm6Zl7ZipsnFQYAJjZr_Y3UBbH4hkiiKKdyI0HWW99_qkW5AAAEAAD______________________wAAAwAAAAMA_____________zwAAAAAFAAfiwgAAAAAAAADAwAAAAAAAAAAAA=='
+        },
+        '3': { 
+            name: 'Lightning Arrow (Deadeye)', 
+            clase: 'Ranger', 
+            ascendancy: 'Deadeye', 
+            dps: '25,000,000 o mas', 
+            defensa: 'Evasión / Supresión de Hechizos',
+            nivel: '96',
+            tipoDano: 'Rayo (Elemental)',
+ 
+            img_habilidades: 'img/la_gemas.png',           
+            img_pasivas: 'img/la_arbol.png',
+            img_equipo: 'img/la_equipo.png',
+
+            pob_url: 'https://poeplanner.com/BAAAAAQAKwACAgBhAF-dgJI6Ag5zbv2STRR79nkIbD80xbSf43MM1KcFlQn-qcrxmn2NivFU5_0kU3q6_tlRaF2gZ5jfyJXmw5KwfDBG3aLEEq0KIbeJWyoBG9EBQ2OueCt_mwoKkPpWR1EzwZ0k3v_G2efbAn-1BSQvfLHW6MfMgRHTQZQydod6z7-NjQ11fZP_ftPiPUjar1tBH3-6GPWHA-thU5j2I1piJpvrr54tUkmKo_4ZBkd9Sqdj13chJ8j-uY2pf4kIE_fswq0QAAAIANNlAbFDcRBhHPpDFV7PvekHABsZd94_easLQB0s8xS-FkYcrTaWfpIOaW3od-AAAAQAAP______________________AAADAAAAAwD_____________PAAAAAAUAB-LCAAAAAAAAAMDAAAAAAAAAAAA'
+        }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const buildId = urlParams.get('id') || '1'; 
+    const currentBuild = buildData[buildId] || buildData['1'];
+
+    if (document.getElementById('detalle-build')) {
+        document.getElementById('page-title').textContent = `Detalle de Build: ${currentBuild.name}`;
+        document.getElementById('nombre-build').textContent = currentBuild.name;
+        document.getElementById('clase-personaje').textContent = currentBuild.clase;
+        document.getElementById('ascendancy-clase').textContent = currentBuild.ascendancy;
+        
+        document.getElementById('dps-stat').textContent = currentBuild.dps;
+        document.getElementById('defensa-stat').textContent = currentBuild.defensa;
+        document.getElementById('nivel-stat').textContent = currentBuild.nivel;
+        document.getElementById('tipo-dano-stat').textContent = currentBuild.tipoDano;
+
+        document.getElementById('img-habilidades').src = currentBuild.img_habilidades;
+        document.getElementById('img-pasivas').src = currentBuild.img_pasivas;
+        document.getElementById('img-equipo').src = currentBuild.img_equipo;
+
+        const pobLink = document.getElementById('pob-link');
+        if (pobLink) {
+            pobLink.href = currentBuild.pob_url;
+        }
+        
+    }
+
+
+    //Funcionalidad Dinámica: Sistema de Pestanas 
+
+  
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    function handleTabClick(event) {
+        
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+
+        event.target.classList.add('active');
+        const targetTabId = event.target.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetTabId);
+        
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+    }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', handleTabClick);
+    });
+
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    //Menu Desplegable Dinamico 
+    
+    const dropdownButton = document.getElementById('builds-dropdown-btn');
+    const dropdownContent = document.getElementById('builds-dropdown');
+
+    if (dropdownButton && dropdownContent) {
+        
+        dropdownButton.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Cierra el menu
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                // Y si el contenido del menu está abierto
+                if (dropdownContent.classList.contains('show')) {
+                    // Cierra el menu
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+    }
+
+}); 

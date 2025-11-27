@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Detalle de Build - PoE</title>
+    <link rel="stylesheet" href="csspoe-estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="index.html">PoE Builds By RodrigoX</a></h1>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+            
+                <li class="dropdown">
+                    <button class="dropbtn" id="builds-dropdown-btn">Mis Builds Temporada (3.27) ▼</button>
+                
+                    <div class="dropdown-content" id="builds-dropdown">
+                        <a href="build_detalle.html?id=1">Poison SRS</a>
+                        <a href="build_detalle.html?id=3">Lightning Arrow Deadeye</a>
+                    </div>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="detalle-build">
+            <article>
+                <header>
+                    <h2 id="nombre-build">Nombre del Build</h2>
+                    <p class="clase-personaje">Clase: <strong id="clase-personaje">...</strong> | Ascendancy: <strong id="ascendancy-clase">...</strong></p>
+                </header>
+                
+                <div id="tabs-container">
+                    <nav class="build-tabs">
+                        <button class="tab-button active" data-tab="habilidades">Habilidades</button>
+                        <button class="tab-button" data-tab="pasivas">Árbol Pasivo</button>
+                        <button class="tab-button" data-tab="equipo">Equipo & Joyas</button>
+                        </nav>
+
+                    <div id="habilidades" class="tab-content active">
+                        <h3>Gemas Principales</h3>
+                        <p></p>
+                        <img src="img/srs_gemas.png" alt="Configuración de Gemas Principales" class="tab-image" id="img-habilidades">
+                        <pre></pre>
+                    </div>
+
+                    <div id="pasivas" class="tab-content">
+                        <h3>Árbol Pasivo y POB</h3>
+                        <p></p>
+                        <img src="img/srs_arbol.png" alt="Captura del Árbol Pasivo" class="tab-image" id="img-pasivas">
+                        <a href="#" target="_blank" class="btn-detalle" id="pob-link">Enlace al planer</a>
+                    </div>
+
+                    <div id="equipo" class="tab-content">
+                        <h3>Equipo</h3>
+                        <p></p>
+                        <img src="img/srs_equipo.png" alt="Equipo Recomendado para la Build" class="tab-image" id="img-equipo">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+
+                    </div>
+            </article>
+
+            <aside id="build-stats">
+                <h3>Estadísticas Rápidas</h3>
+                <ul>
+                    <li>DPS Estimado: <strong id="dps-stat">...</strong></li>
+                    <li>Vida/Escudo: <strong id="defensa-stat">...</strong></li>
+                    <li>Nivel Recomendado: <strong id="nivel-stat">...</strong></li>
+                    <li>Tipo de Daño: <strong id="tipo-dano-stat">...</strong></li>
+                </ul>
+                <a href="index.html" class="btn-detalle btn-volver">← Volver al Resumen</a>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Exiliado Rodrigox</p>
+    </footer>
+    
+    <script src="jspoe-scripts.txt"></script>
+</body>
+</html>
